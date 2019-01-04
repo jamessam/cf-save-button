@@ -1,0 +1,7 @@
+{
+  "id": "cf-save-button",
+  "fieldTypes": ["Symbol"],
+  "name": "Contentful Save Button",
+  "sidebar": true,
+  "srcdoc": "./index.html"
+}

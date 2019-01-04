@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  	<link rel="stylesheet" href="https://contentful.github.io/ui-extensions-sdk/cf-extension.css">
+    <script src="https://unpkg.com/contentful-ui-extensions-sdk@3"></script>
+</head>
+<body>
+    <button type="button" class="cf-btn-primary" onclick="saveEntry()">Save this entry</button>
+    <script>
+      'use strict';
+      function saveEntry() {
+        window.contentfulExtension.init(initExtension);
+        async function initExtension(extensions) {
+          let entrySys = extensions.entry.getSys()
+          try {
+            let _entry = await extensions.space.getEntry(entrySys.id)
+            extensions.space.updateEntry(_entry);
+          } catch(err) {
+            console.error(err)
+          }
+        }
+      }
+    </script>
+</body>
+</html>
